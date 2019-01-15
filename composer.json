@@ -3,7 +3,7 @@
     "description": "A more simple way to interact with MySQL via php",
     "autoload": {
         "psr-4":{
-            "commanderZiltoid\\simple-mysql\\": "src/"
+            "commanderZiltoid\\SimpleMySQL\\": "src/"
         }
     }
 }
