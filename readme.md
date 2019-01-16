@@ -13,7 +13,10 @@ interact with MySQL?
   a rational thought pattern)?
   
   ### If you have answered `YES` to any of the above, `SimpleMySQL` might be right for you. Please consult with your senior developer today!
+  <br/>
   
+  ## Install via composer
+  `composer require whitwhoa/simple-mysql`
   
   ## Usage
   ```php
@@ -69,7 +72,7 @@ interact with MySQL?
   // Delete an existing record (returns void)
   $db->query("DELETE FROM test WHERE id = ?", [3])->exec();  
   ```
-  
+  <br/>
   
   ## Caution
   
