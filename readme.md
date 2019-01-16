@@ -17,7 +17,7 @@ interact with MySQL?
   
   ## Usage
   ```php
-  use commanderZiltoid\SimpleMySQL\MySQLCon;
+  use whitwhoa\SimpleMySQL\MySQLCon;
   
   /**
    * First parameter is an array of the following:
