@@ -1,6 +1,6 @@
 <?php
 
-namespace commanderZiltoid\SimpleMySQL;
+namespace whitwhoa\SimpleMySQL;
 
 
 use PDO;

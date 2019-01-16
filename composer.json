@@ -1,9 +1,9 @@
 {
-    "name": "commanderZiltoid/simple-mysql",
+    "name": "whitwhoa/simple-mysql",
     "description": "A more simple way to interact with MySQL via php",
     "autoload": {
         "psr-4":{
-            "commanderZiltoid\\SimpleMySQL\\": "src/"
+            "whitwhoa\\SimpleMySQL\\": "src/"
         }
     }
 }
