@@ -71,6 +71,7 @@ interact with MySQL?
   ```
   
   
+  ##Caution
   
   ### If you experience any of the following symptoms please stop using SimpleMySQL and contact your senior developer immediately:
   * Data loss and or corruption
