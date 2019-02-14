@@ -114,7 +114,7 @@ class MySQLCon {
                 $this->_generate_mysql_statement();
                 $this->_generate_mysql_resultset();
                 if($this->_single){
-                    return $this->_resultset[0];
+                    return isset($this->_resultset[0]) ? $this->_resultset[0] : NULL;
                 }
                 return $this->_resultset;
             case 'insert':
@@ -182,6 +182,7 @@ class MySQLCon {
      * @return void
      */
     private function _generate_mysql_resultset(){
+		$this->_resultset = []; // clear resultset from previous query
         if($this->_fetch_style === 'FETCH_ASSOC'){
             while($row = $this->_statement->fetch(PDO::FETCH_ASSOC)){
                 $this->_resultset[] = $row;
