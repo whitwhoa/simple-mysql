@@ -1,6 +1,6 @@
 <?php
 
-namespace whitwhoa\SimpleMySQL;
+namespace Whitwhoa\SimpleMySQL;
 
 
 use PDO;
