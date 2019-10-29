@@ -51,7 +51,7 @@ class MySQLCon {
      * @param array $bind
      * @return MySQLCon
      */
-    public function query($query, $bind = array()) {
+    public function query($query, $bind = []) {
         $this->_query = $query;
         $this->_bind = $bind;
         return $this;
@@ -62,7 +62,7 @@ class MySQLCon {
      * @return MySQLCon
      */
     public function asArray() {
-        $this->_fetch_style = 'FETCH_ASSOC';
+        $this->_fetch_style = PDO::FETCH_ASSOC;
         $this->_single = false;
         return $this;
     }
@@ -72,7 +72,7 @@ class MySQLCon {
      * @return MySQLCon
      */
     public function singleAsArray() {
-        $this->_fetch_style = 'FETCH_ASSOC';
+        $this->_fetch_style = PDO::FETCH_ASSOC;
         $this->_single = true;
         return $this;
     }
@@ -82,7 +82,7 @@ class MySQLCon {
      * @return MySQLCon
      */
     public function asObj() {
-        $this->_fetch_style = 'FETCH_OBJ';
+        $this->_fetch_style = PDO::FETCH_OBJ;
         $this->_single = false;
         return $this;
     }
@@ -92,7 +92,7 @@ class MySQLCon {
      * @return MySQLCon
      */
     public function singleAsObj() {
-        $this->_fetch_style = 'FETCH_OBJ';
+        $this->_fetch_style = PDO::FETCH_OBJ;
         $this->_single = true;
         return $this;
     }
@@ -128,7 +128,7 @@ class MySQLCon {
     }
 
     // useful when query utilizes IN()
-    public function generate_bind_string_for_array($bindArray = array()){
+    public function generate_bind_string_for_array($bindArray = []){
         $returnString = '';
         $count = 1;
         foreach($bindArray as $val) {
@@ -177,28 +177,12 @@ class MySQLCon {
     }
 
     /**
-     * Generate a result set using the provided $statement and $fetch_style
+     * Generate a result set
      *
      * @return void
      */
     private function _generate_mysql_resultset(){
-		$this->_resultset = []; // clear resultset from previous query
-        if($this->_fetch_style === 'FETCH_ASSOC'){
-            while($row = $this->_statement->fetch(PDO::FETCH_ASSOC)){
-                $this->_resultset[] = $row;
-            }
-        }
-        elseif($this->_fetch_style === 'FETCH_OBJ'){
-            while($row = $this->_statement->fetch(PDO::FETCH_OBJ)){
-                $this->_resultset[] = $row;
-            }
-        }
-        else {
-            if($this->_show_errors){
-                echo "PDO fetch style not supported";
-                die;
-            }
-        }
+		$this->_resultset = $this->_statement->fetchAll($this->_fetch_style);
     }
 
 
